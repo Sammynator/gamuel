@@ -30,8 +30,8 @@
 
     <p>Guess a number between 1 and 10</p>
    
-    <input type="text" id="guessInput">
-    <input type="submit" value="Submit Guess" id="guessSubmit">
+    <input type="text" id="guessInput" placeholder="Enter a number" >
+    <input type="submit" value="Guess" id="guessSubmit" >
     <p id="message"></p>
     
     <script>
@@ -75,38 +75,49 @@
             </article>
             <article class="game">
                 <img src="game2.jpg" alt="Game 2">
+
+               
+                <body>
+                    <h1>Color Guessing Game</h1>
+                    <p>What color am I thinking of?</p>
+                    <input type="text" id="colorInput" placeholder="Enter color name">
+                    <button id="submitBtn">Guess</button>
+                    <p id="result"></p>
                 
-    <h2>Color Guessing Game</h2>
-    <p>What Color am I thinking of?</p>
-    <input type="text" id="colorInput" placeholder="Enter color name">
-    <button id="submitBtn">Guess</button>
-    <p id="result"></p>
-
-    <script>
-        // Define an array of color names
-        const colorNames = ["red", "blue", "green", "yellow", "purple"];
-
-        // Get DOM elements
-        const colorInput = document.getElementById("colorInput");
-        const submitBtn = document.getElementById("submitBtn");
-        const result = document.getElementById("result");
-
-        submitBtn.addEventListener("click", checkGuess);
-
-        function checkGuess() {
-            const userGuess = colorInput.value.toLowerCase();
-
-            if (colorNames.includes(userGuess)) {
-                result.textContent = "Congratulations! That's a correct color name.";
-                result.style.color = "green";
-            } else {
-                result.textContent = "Sorry, that's not a valid color name. Try again!";
-                result.style.color = "red";
-            }
-        }
-    </script>
-</body>
-</html>
+                    <script>
+                        // Define an array of color names
+                        const colorNames = ["red", "blue", "green", "yellow", "purple"];
+                
+                        // Get DOM elements
+                        const colorInput = document.getElementById("colorInput");
+                        const submitBtn = document.getElementById("submitBtn");
+                        const result = document.getElementById("result");
+                
+                        // Function to generate a random color
+                        function generateRandomColor() {
+                            return colorNames[Math.floor(Math.random() * colorNames.length)];
+                        }
+                
+                        // Initial random color
+                        let randomColor = generateRandomColor();
+                
+                        submitBtn.addEventListener("click", checkGuess);
+                
+                        function checkGuess() {
+                            const userGuess = colorInput.value.toLowerCase();
+                
+                            if (userGuess === randomColor) {
+                                result.textContent = `Congratulations! You guessed the correct color: ${randomColor}.`;
+                                result.style.color = "green";
+                            } else {
+                                result.textContent = `Sorry, that's not the correct color. Try again!`;
+                                result.style.color = "red";
+                            }
+                
+                            // Generate a new random color for the next round
+                            randomColor = generateRandomColor();
+                        }
+                    </script>
 
             </article>
             <article class="game">
