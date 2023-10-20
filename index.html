@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
     <title>Gamuel</title>
+    <script>
+        
+    </script>
 </head>
 <body>
     <header>
@@ -23,26 +26,69 @@
         <section class="game-list">
             <article class="game">
                 <img src="game1.jpg" alt="Game 1">
-                <h2>Super Adventure Quest</h2>
-                <p>An epic adventure awaits! Save the kingdom from the dragon.</p>
-                <a href="#" class="play-button">Play Now</a>
+                <h2>Number Guessing Game</h2>
+
+    <p>Guess a number between 1 and 10</p>
+    <p>Input your guess:</p>
+    <input type="text" id="guessInput">
+    <input type="submit" value="Submit Guess" id="guessSubmit">
+    <p id="message"></p>
+    
+    <script>
+        // Generate a random number between 1 and 10
+        const correctNumber = Math.floor(Math.random() * 10) + 1;
+
+        const guessSubmit = document.getElementById('guessSubmit');
+        const guessInput = document.getElementById('guessInput');
+        const message = document.getElementById('message');
+        let attempts = 0;
+
+        guessSubmit.addEventListener('click', checkGuess);
+
+        function checkGuess() {
+            const userGuess = parseInt(guessInput.value);
+            attempts++;
+
+            if (userGuess === correctNumber) {
+                message.textContent = `Congratulations! You guessed the correct number (${correctNumber}) in ${attempts} attempts.`;
+                message.style.color = 'green';
+                setGameOver();
+            } else if (userGuess < correctNumber) {
+                message.textContent = 'Try a higher number.';
+                message.style.color = 'red';
+            } else {
+                message.textContent = 'Try a lower number.';
+                message.style.color = 'red';
+            }
+
+            guessInput.value = '';
+            guessInput.focus();
+        }
+
+        function setGameOver() {
+            guessInput.disabled = true;
+            guessSubmit.disabled = true;
+        }
+    </script>
+
+
             </article>
             <article class="game">
                 <img src="game2.jpg" alt="Game 2">
                 <h2>Intergalactic Shootout</h2>
                 <p>Defend the galaxy from alien invaders in this fast-paced shooter.</p>
-                <a href="#" class="play-button">Play Now</a>
+                
             </article>
             <article class="game">
                 <img src="game3.jpg" alt="Game 3">
                 <h2>Mini Golf Mania</h2>
                 <p>Putt your way to victory in this fun and challenging mini-golf game.</p>
-                <a href="#" class="play-button">Play Now</a>
+               
             </article>
         </section>
     </main>
     <footer>
-        <p>&copy; 2023 Fun Game World</p>
+        <p>&copy; 2023 Gamuel Inc.</p>
     </footer>
 </body>
 </html>
