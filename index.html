@@ -29,7 +29,7 @@
                 <h2>Number Guessing Game</h2>
 
     <p>Guess a number between 1 and 10</p>
-    <p>Input your guess:</p>
+   
     <input type="text" id="guessInput">
     <input type="submit" value="Submit Guess" id="guessSubmit">
     <p id="message"></p>
@@ -75,9 +75,39 @@
             </article>
             <article class="game">
                 <img src="game2.jpg" alt="Game 2">
-                <h2>Intergalactic Shootout</h2>
-                <p>Defend the galaxy from alien invaders in this fast-paced shooter.</p>
                 
+    <h2>Color Guessing Game</h2>
+    <p>What Color am I thinking of?</p>
+    <input type="text" id="colorInput" placeholder="Enter color name">
+    <button id="submitBtn">Guess</button>
+    <p id="result"></p>
+
+    <script>
+        // Define an array of color names
+        const colorNames = ["red", "blue", "green", "yellow", "purple"];
+
+        // Get DOM elements
+        const colorInput = document.getElementById("colorInput");
+        const submitBtn = document.getElementById("submitBtn");
+        const result = document.getElementById("result");
+
+        submitBtn.addEventListener("click", checkGuess);
+
+        function checkGuess() {
+            const userGuess = colorInput.value.toLowerCase();
+
+            if (colorNames.includes(userGuess)) {
+                result.textContent = "Congratulations! That's a correct color name.";
+                result.style.color = "green";
+            } else {
+                result.textContent = "Sorry, that's not a valid color name. Try again!";
+                result.style.color = "red";
+            }
+        }
+    </script>
+</body>
+</html>
+
             </article>
             <article class="game">
                 <img src="game3.jpg" alt="Game 3">
