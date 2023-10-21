@@ -33,7 +33,7 @@
     <input type="text" id="guessInput" placeholder="Enter a number" >
     <input type="submit" value="Guess" id="guessSubmit" >
     <p id="message"></p>
-    
+
     <script>
         // Generate a random number between 1 and 10
         const correctNumber = Math.floor(Math.random() * 10) + 1;
@@ -44,6 +44,8 @@
         let attempts = 0;
 
         guessSubmit.addEventListener('click', checkGuess);
+    
+    
 
         function checkGuess() {
             const userGuess = parseInt(guessInput.value);
@@ -122,9 +124,11 @@
             </article>
             <article class="game">
                 <img src="game3.jpg" alt="Game 3">
-                <h2>Mini Golf Mania</h2>
-                <p>Putt your way to victory in this fun and challenging mini-golf game.</p>
-               
+                <h2>Block Jump</h2>
+                <p>Don't hit the blue blocks!</p>
+               <button><a href="jumping_game1.html">Difficulty 1</a></button>
+               <button><a href="jumping_game2.html">Difficulty 2</a></button>
+               <button><a href="jumping_game3.html">Difficulty 3</a></button>
             </article>
         </section>
     </main>
