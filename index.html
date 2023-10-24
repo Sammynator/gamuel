@@ -55,13 +55,19 @@
                 message.textContent = `Congratulations! You guessed the correct number (${correctNumber}) in ${attempts} attempts.`;
                 message.style.color = 'green';
                 setGameOver();
-            } else if (userGuess < correctNumber) {
+            } 
+            else if (userGuess === 69) {
+                message.textContent = 'haha, nice.';
+                message.style.color = 'green';
+            }
+            else if (userGuess < correctNumber) {
                 message.textContent = 'Try a higher number.';
                 message.style.color = 'red';
             } else {
                 message.textContent = 'Try a lower number.';
                 message.style.color = 'red';
             }
+          
 
             guessInput.value = '';
             guessInput.focus();
