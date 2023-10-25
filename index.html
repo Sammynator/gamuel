@@ -52,7 +52,7 @@
             attempts++;
 
             if (userGuess === correctNumber) {
-                message.textContent = `Congratulations! You guessed the correct number (${correctNumber}) in ${attempts} attempts.`;
+                message.textContent = `You're good, that is correct! (${correctNumber}) in ${attempts} attempts.`;
                 message.style.color = 'green';
                 setGameOver();
             } 
@@ -60,11 +60,19 @@
                 message.textContent = 'haha, nice.';
                 message.style.color = 'green';
             }
+            else if (userGuess === 420) {
+                message.textContent = 'duuuude, didn`t know you were chill like that';
+                message.style.color = 'green';
+            }
             else if (userGuess < correctNumber) {
                 message.textContent = 'Try a higher number.';
                 message.style.color = 'red';
-            } else {
+            } else if (userGuess > correctNumber && userGuess < 10) {
                 message.textContent = 'Try a lower number.';
+                message.style.color = 'red';
+            }
+            else if (userGuess > 10 || userGuess < 1) {
+                message.textContent = 'That is not a number between 1 and 10, try again!';
                 message.style.color = 'red';
             }
           
